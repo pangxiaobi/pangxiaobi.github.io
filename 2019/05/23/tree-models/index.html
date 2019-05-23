@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="机器学习,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="请不要怀疑，这里真的是一个技术博客。在记录学习技术的历程之前，我先来写一篇与技术无关的文章开始这个博客吧。 时光荏苒，转眼就要跟学生这个身份说声再见了。 这七年是我在外地求学的时光，南开的四年，人大的三年。这些年我遇到了很多人，也离开了很多人。时光太匆匆，军训的晚上在新开湖边边赶蚊子边聊天的场景好像就在昨天，却已经过去好多年。那个时候盼着早点毕业，现在发现最无需期盼的就是未来，因为不管是好是坏，总">
+<meta name="description" content="提到树模型，想到的大概是gbdt、随机森林这些。这里是博猪为了写论文总结过的一些相对小众的树模型。树模型通常胜在时间效率上，可以将模型的时间复杂度从o(n)级别降到log(n)级别。跑这些模型不需要等上几小时，这也是我爱他们的原因。例如大家都知道的word2vec中的hierarchical softmax，就是将一个多分类通过二叉树变成了多个二分类问题。对于word2vec和fasttext这样">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hi world">
-<meta property="og:url" content="http://yoursite.com/2019/05/22/hi-world/index.html">
+<meta property="og:title" content="tree models">
+<meta property="og:url" content="http://yoursite.com/2019/05/23/tree-models/index.html">
 <meta property="og:site_name" content="坚持一定很酷">
-<meta property="og:description" content="请不要怀疑，这里真的是一个技术博客。在记录学习技术的历程之前，我先来写一篇与技术无关的文章开始这个博客吧。 时光荏苒，转眼就要跟学生这个身份说声再见了。 这七年是我在外地求学的时光，南开的四年，人大的三年。这些年我遇到了很多人，也离开了很多人。时光太匆匆，军训的晚上在新开湖边边赶蚊子边聊天的场景好像就在昨天，却已经过去好多年。那个时候盼着早点毕业，现在发现最无需期盼的就是未来，因为不管是好是坏，总">
+<meta property="og:description" content="提到树模型，想到的大概是gbdt、随机森林这些。这里是博猪为了写论文总结过的一些相对小众的树模型。树模型通常胜在时间效率上，可以将模型的时间复杂度从o(n)级别降到log(n)级别。跑这些模型不需要等上几小时，这也是我爱他们的原因。例如大家都知道的word2vec中的hierarchical softmax，就是将一个多分类通过二叉树变成了多个二分类问题。对于word2vec和fasttext这样">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-22T06:53:46.248Z">
+<meta property="og:updated_time" content="2019-05-23T13:04:01.631Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hi world">
-<meta name="twitter:description" content="请不要怀疑，这里真的是一个技术博客。在记录学习技术的历程之前，我先来写一篇与技术无关的文章开始这个博客吧。 时光荏苒，转眼就要跟学生这个身份说声再见了。 这七年是我在外地求学的时光，南开的四年，人大的三年。这些年我遇到了很多人，也离开了很多人。时光太匆匆，军训的晚上在新开湖边边赶蚊子边聊天的场景好像就在昨天，却已经过去好多年。那个时候盼着早点毕业，现在发现最无需期盼的就是未来，因为不管是好是坏，总">
+<meta name="twitter:title" content="tree models">
+<meta name="twitter:description" content="提到树模型，想到的大概是gbdt、随机森林这些。这里是博猪为了写论文总结过的一些相对小众的树模型。树模型通常胜在时间效率上，可以将模型的时间复杂度从o(n)级别降到log(n)级别。跑这些模型不需要等上几小时，这也是我爱他们的原因。例如大家都知道的word2vec中的hierarchical softmax，就是将一个多分类通过二叉树变成了多个二分类问题。对于word2vec和fasttext这样">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/22/hi-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/23/tree-models/">
 
 
 
 
 
-  <title>hi world | 坚持一定很酷</title>
+  <title>tree models | 坚持一定很酷</title>
   
 
 
@@ -252,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/hi-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/23/tree-models/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="feifei">
@@ -269,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hi world</h1>
+          <h1 class="post-title" itemprop="name headline">tree models</h1>
         
 
         <div class="post-meta">
@@ -281,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-22T13:56:38+08:00">
-                2019-05-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-23T19:44:53+08:00">
+                2019-05-23
               </time>
             
 
@@ -319,12 +320,26 @@
       
 
       
-        <p>请不要怀疑，这里真的是一个技术博客。在记录学习技术的历程之前，我先来写一篇与技术无关的文章开始这个博客吧。</p>
-<p>时光荏苒，转眼就要跟学生这个身份说声再见了。
-这七年是我在外地求学的时光，南开的四年，人大的三年。这些年我遇到了很多人，也离开了很多人。时光太匆匆，军训的晚上在新开湖边边赶蚊子边聊天的场景好像就在昨天，却已经过去好多年。那个时候盼着早点毕业，现在发现最无需期盼的就是未来，因为不管是好是坏，总是会到来,可以做的只是珍惜现在。
-感谢这些年帮助过我的人，陪伴过我的人和一直努力的自己。
-hi world，就要开始离开学校开始一个人的北漂生活了呢。希望你永远是那个坚强的姑娘，勇敢的追求你想要的生活，毕竟和失败比起来，你更不想后悔～</p>
-<p>有缘看到这篇文章的人，愿你眼前的路都是坦途。</p>
+        <p>提到树模型，想到的大概是gbdt、随机森林这些。这里是博猪为了写论文总结过的一些相对小众的树模型。树模型通常胜在时间效率上，可以将模型的时间复杂度从o(n)级别降到log(n)级别。跑这些模型不需要等上几小时，这也是我爱他们的原因。例如大家都知道的word2vec中的hierarchical softmax，就是将一个多分类通过二叉树变成了多个二分类问题。对于word2vec和fasttext这样众所周知的模型就不再赘述啦。</p>
+<h1>FastXML</h1>
+<p>这真的是一个很棒的extreme multi-label learning的模型。作者是微软的manik varma.</p>
+<p>extreme multi-label learning主要的问题就是标签量极大，传统的multi-label learning的方法通常是对每个标签训练一个二分类器，对于extreme multi-label learning来说并不现实。FastXML的解决方案是，通过将样本根据特征聚类，对于测试样本，跟聚类后的某一小撮样本比较相似，就通过这一小撮样本的平均标签分布来估计这个测试样本的标签。</p>
+<p>神奇的就是这个聚类过程了。最开始，所有的样本都在同一个节点中（根结点），每次将当前节点的样本根据“特征相近，标签分布相似”这一目的，分裂成两个节点。这样一直分裂下去，直到每个节点中的样本数量足够少，这棵树就建成了。对于一个测试样本，从跟节点开始，寻找跟他特征最相近的路线，直到找到叶节点，那么他就到家了，这个叶节点就可以认为是整个训练集的样本中跟这个测试样本最相近的几个样本，因此可以通过他们的标签分布来估计这个测试样本的标签。</p>
+<p>那么是如何做到“特征相近，标签分布相似”的呢？对label分布的考虑方式是，对于当前节点的所有样本，随机给他们每人一个label，1或者-1. 1代表这个样本应该去左子节点，-1代表应该去右子节点。那么对于label是1的，可以得到一个label的总分布，也就是哪些label出现在这些样本中的次数最多，对于-1的也是如此。我们分别调整每一个样本的1或-1这个值，如果这个样本的label跟1这些样本的label更相近（这个样本的label在1这个节点包含的样本中排名更高）他就更应该分到左子节点，否则就将这个值改成-1.这样分别调整每一个样本，直到loss变化不大为止。对特征的考虑方式就是通过一个线性特征分类器w啦。</p>
+<h1>partial label trees</h1>
+<p>也是一个multi-label learning的模型。不同的是他的每一个叶节点是一个label。非叶节点是没有实际意义的，大概可以看成label的集合。每个节点有一个线性分类器，根据样本的特征，对一个样本是否应该继续当前这条路径给出一个概率。最后一个样本是否包含一个标签，就可以通过这条路径上的概率乘积得到了。听起来如果标签数量很大需要很长时间，实际上在中途如果这个概率已经很小，这条路就不会再继续下去了。这个模型速度超级快～label树是需要提前定义好的，例如可以用一个huffman树。</p>
+<h1>learning tree-based deep model for recommender systems</h1>
+<p>这是阿里妈妈盖坤团队自研的推荐模型。</p>
+<p>树中每个节点有embedding。每个商品对应树的一个叶节点，非叶节点是粗粒度的商品类别。根据商品的embedding和树中节点的embedding，每一层的节点选择topk，然后再选择这些topk的孩子节点，再选topk，以降低时间复杂度。直到叶子节点。这k个叶子节点作为推荐商品。不是分类而是排序。商品的embedding是通过用户的历史行为计算得到的，由于关注的是这个树模型，这里就不具体介绍用户embedding的计算方法了。</p>
+<p>discriminator的学习方法：pairwise learning，购买过的商品和他的祖先节点是正例，随机sample负例。每一个正例节点不一定从同一个level 选择负例。这样可以使得学到的分类器是全局的。
+建树的过程：将类别随机排列，同一类别的商品随机排列，商品如果属于多个类别就选择其中之一，避免重复。</p>
+<h1>label embedding trees</h1>
+<p>这篇论文解决的是multi-class问题。学习一个label树的同时进行embedding。并不是二叉树，所有label在根节点不断聚类分裂，直到叶节点只包含其中一个label。
+假设，样本特征x，每次根据f(x) 选择最有可能的一个子节点，一直到叶节点为止。树的结构固定后学习每个节点的线性分类器。跟partial label trees很像，差别在于得到树的结构的方式不同，选择子节点的方式不同。</p>
+<p>学习树的结构，通过学习k个one-vs-rest分类器，得到验证集上的混淆矩阵，每次节点分裂的依据是最大化混淆矩阵对应值的和（使不同节点包含的label之间的混淆值最大，这样可以减小分错的概率）。
+在子节点的选择上，仍然是学习一个线性分类器W，v是节点的embedding。
+一个测试集样本x，计算 W*x和子节点v的相似程度，比较所有子节点的值，取值最大的子节点。学习出的v的对应一列就是对应的label的embedding。</p>
+<p>预测的时候就根据w和v的值，沿着树的路径，得到wx和v相似度最大的一个class。</p>
 
       
     </div>
@@ -340,6 +355,12 @@ hi world，就要开始离开学校开始一个人的北漂生活了呢。希望
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
 
       
       
@@ -349,15 +370,15 @@ hi world，就要开始离开学校开始一个人的北漂生活了呢。希望
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/22/pytorch-学习笔记/" rel="next" title="pytorch 学习笔记">
+                <i class="fa fa-chevron-left"></i> pytorch 学习笔记
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/22/pytorch-学习笔记/" rel="prev" title="pytorch 学习笔记">
-                pytorch 学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -409,8 +430,17 @@ hi world，就要开始离开学校开始一个人的北漂生活了呢。希望
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -485,6 +515,22 @@ hi world，就要开始离开学校开始一个人的北漂生活了呢。希望
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">FastXML</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">partial label trees</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">learning tree-based deep model for recommender systems</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">label embedding trees</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
